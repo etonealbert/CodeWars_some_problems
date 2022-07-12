@@ -1,3 +1,5 @@
+//Slice array
+
 func take(_ arr: [Int], _ n: Int) -> [Int] {
   
   var take : Array<Int> = []
