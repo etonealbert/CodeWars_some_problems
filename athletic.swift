@@ -20,29 +20,18 @@ private func str2sec(_ str: Substring) -> Int{
 func stat(_ strg: String) -> String {
 
     let every_result = strg.split(separator: ",")
-    // var dictionary: Dictionary<Substring, Int> = [:]
     var seconds : Array<Int> = []
-  
-
-    for i in every_result
-    {
+    for i in every_result{
     seconds.append(str2sec(i))
     }
     seconds = seconds.sorted()
-    
-    print(seconds)
-    
 
     let range = sec2str(seconds[(seconds.count-1)]-seconds[0])
     let average = sec2str(seconds.reduce(0, +)/seconds.count)
     let median : String = seconds.count % 2 == 0 ? 
-    sec2str(seconds[((seconds.count/2)-1+(seconds.count/2))/2]) 
+    sec2str((seconds[(seconds.count/2)-1]+seconds[(seconds.count/2)])/2) 
     : sec2str(seconds[(seconds.count/2)]) 
-  
-   // print(sec2str(range))
-
-  return "Range: \(range) Average: \(average) Median: \(median)"
-
+    return "Range: \(range) Average: \(average) Median: \(median)"
 }
-var l = "01|15|59,01|47|16,01|17|20,01|32|34,02|17|17";
+var l = "02|15|59,02|47|16,02|17|20,02|32|34,02|32|34,02|17|17";
 print(stat(l))
