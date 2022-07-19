@@ -13,6 +13,4 @@ func removNb(_ n: Int) -> [(Int,Int)]
   return prod
 }
 
-print(removNb(26)) 	//return to numbers wich product 
-			// is equal sum of all numbers 0 below 100
-			//except this to numbers 
+print(removNb(26)) 	//return to numbers wich product
