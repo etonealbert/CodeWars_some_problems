@@ -4,9 +4,15 @@ func sysA(_ ticket: Double,_ n: Double) -> Double{
     return ticket*n
 }
 
-func sysB(_ card: Double,_ ticket: Double,_ perc: Double,_ day: Double) -> Double{
-    
-    return (ticket*(1-pow(perc,day)))/(1-perc)-ticket + card
+func sysB(_ card: Double,_ ticket: Double,_ perc: Double,_ dy: Double) -> Double{
+    var sum = card
+    var price = ticket
+    let day : Int = Int(dy)
+    for _ in 0..<day{
+        sum+=ceil(price*perc*100)/100
+        price*=perc
+    }
+    return sum
 }
 
 func movie(card: Double, ticket: Double, perc: Double) -> Int {
@@ -23,4 +29,4 @@ func movie(card: Double, ticket: Double, perc: Double) -> Int {
 
 //print(sysB( 500,  15, 0.9, 43))
 
-print(movie(card: 100, ticket: 10, perc: 0.95))//should return 24
+print(movie(card: 500, ticket: 15, perc: 0.9))//should return 24
