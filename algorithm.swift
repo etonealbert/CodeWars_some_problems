@@ -1,28 +1,28 @@
-func ann(_ n : Int) -> [Int] {
-    var kata_count = 1
+func algor(_ n: Int,_ kata_kek: Int,_ id: Int) -> [Int]{
+    var kata_count = kata_kek
         var kata_per_day : [Int] = []
         repeat{
             if(kata_per_day.count != 0){
-                var john_t = john(kata_count)
-                kata_count = kata_per_day.count+1 - john_t.removeLast()
+                let day_t = algor(kata_count, id, kata_kek)
+                kata_count = kata_per_day.count+1 - day_t[day_t.count-1]
             }
             kata_per_day.append(kata_count)
         }while ((kata_per_day.count) < n) 
-    kata_per_day.insert( 1, at: 1)
     return kata_per_day
 }
+
+func ann(_ n : Int) -> [Int] {
+    var answer = algor(n, 1, 0)
+     answer.insert( 1, at: 1)
+    answer.removeLast()
+    return answer
+}
+
 func john(_ n : Int) -> [Int] {
- var kata_count = 0
-    var kata_per_day : [Int] = []
-    repeat{
-        if(kata_per_day.count != 0){
-            var ann_t = ann(kata_count)
-            kata_count = kata_per_day.count+1 - ann_t.removeLast()
-        }
-        kata_per_day.append(kata_count)
-    }while ((kata_per_day.count) < n) 
-    kata_per_day.insert( 0, at: 1)
-  return kata_per_day
+ var answer = algor(n, 0, 1)
+ answer.insert( 0, at: 1)
+ answer.removeLast()
+    return answer
 }
 
 func sumJohn(_ n : Int) -> Int {
