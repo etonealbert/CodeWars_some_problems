@@ -9,7 +9,7 @@ func sysB(_ card: Double,_ ticket: Double,_ perc: Double,_ dy: Double) -> Double
     var price = ticket
     let day : Int = Int(dy)
     for _ in 0..<day{
-        sum+=ceil(price*perc*100)/100
+        sum+=round(price*perc*100)/100
         price*=perc
     }
     return sum
