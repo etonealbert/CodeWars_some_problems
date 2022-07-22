@@ -29,4 +29,5 @@ func movie(card: Double, ticket: Double, perc: Double) -> Int {
 
 //print(sysB( 500,  15, 0.9, 43))
 
+
 print(movie(card: 500, ticket: 15, perc: 0.9))//should return 24
