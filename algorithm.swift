@@ -1,8 +1,9 @@
 func algor(_ n: Int,_ kata_kek: Int,_ id: Int) -> Int{
     var kata_count = kata_kek
-        var kata_per_day : [Int] = []
+    var kata_per_day : [Int] = []
         repeat{
-            if(kata_per_day.count != 0){
+            if(kata_per_day.count != 0)
+            {
                 let day_t = algor(kata_count, id, kata_kek)
                 kata_count = kata_per_day.count+1 - day_t
             }
@@ -12,23 +13,22 @@ func algor(_ n: Int,_ kata_kek: Int,_ id: Int) -> Int{
 }
 
 
+
 func algor2(_ n: Int,_ kata_kek: Int,_ id: Int) -> [Int]{
     var kata_count = kata_kek
-        var kata_per_day : [Int] = []
+    var kata_per_day : [Int] = []
         repeat{
-            if(kata_per_day.count != 0){
-               
-                if(kata_per_day.count > n){
-                     var day_t = algor2(kata_count, id, kata_kek)
-                     kata_count = kata_per_day.count+1 - day_t.removeLast()
-                }else{
-                 let day_t = algor(kata_count, id, kata_kek)
-                kata_count = kata_per_day.count+1 - day_t}
+            if(kata_per_day.count != 0)
+            {
+                let day_t = algor(kata_count, id, kata_kek)
+                kata_count = kata_per_day.count+1 - day_t
             }
+            
             kata_per_day.append(kata_count)
         }while ((kata_per_day.count) < n) 
     return kata_per_day
 }
+
 
 func ann(_ n : Int) -> [Int] {
     var answer = algor2(n, 1, 0)
