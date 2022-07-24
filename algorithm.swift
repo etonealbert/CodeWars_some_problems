@@ -29,7 +29,6 @@ func algor2(_ n: Int,_ kata_kek: Int,_ id: Int) -> [Int]{
     return kata_per_day
 }
 
-
 func ann(_ n : Int) -> [Int] {
     var answer = algor2(n, 1, 0)
      answer.insert( 1, at: 1)
